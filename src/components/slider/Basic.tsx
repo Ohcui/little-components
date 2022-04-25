@@ -7,27 +7,19 @@ const HIGH_LIGHT_COLOR_2 = '#aaa';
 const HANDLE_W = 20;
 
 interface Props {
-  value: number;
-  maximum: number;
-  onChange: (newValue: number) => void;
+  percentage: number;
+  onPercentageChange: (newPercentage: number) => void;
 }
 
 /**
  * Basic Slider
- * Renders a handle float on track
- * Triggers onChange when handle change position with new value
- * @param value
- * @param maximum
- * @param onChange
+ * Renders a handle floating on track
+ * Triggers onPercentageChange when handle change position with new value
+ * @param percentage
+ * @param onPercentageChange
  * @constructor
  */
-export const BasicSlider: FC<Props> = ({ value, maximum, onChange }) => {
-  const percentage = value / maximum;
-
-  const onPercentageChange = (newPercentage: number) => {
-    onChange(newPercentage * maximum);
-  }
-
+export const BasicSlider: FC<Props> = ({ percentage, onPercentageChange }) => {
   const domTrack = useRef<HTMLDivElement>(null);
 
   const startListeningMouseMove: MouseEventHandler = (ev) => {

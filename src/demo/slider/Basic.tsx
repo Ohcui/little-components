@@ -8,7 +8,7 @@ export const BasicDemo: FC = () => {
   return (
       <div>
         <input value={value.toString()} type="number" onChange={(ev) => setValue(parseInt(ev.target.value))} />
-        <BasicSlider value={value} maximum={maximum} onChange={setValue} />
+        <BasicSlider percentage={value / maximum} onPercentageChange={(newPercentage => {setValue(newPercentage * maximum)})} />
       </div>
   )
 }
