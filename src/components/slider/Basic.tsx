@@ -44,17 +44,11 @@ export const BasicSlider: FC<Props> = ({ percentage, onPercentageChange }) => {
   return (
     <div className="container" style={{ width: WIDTH, height: HEIGHT, border: '1px solid ' + HIGH_LIGHT_COLOR_1 }}>
       <div className="track" ref={domTrack} style={{ width: WIDTH, height: HEIGHT }}>
-        <div className="value" style={{
+        <div className="value" style={{ height: HEIGHT, backgroundColor: HIGH_LIGHT_COLOR_1, position: 'relative',
           width: (percentage * WIDTH),
-          height: HEIGHT, backgroundColor: HIGH_LIGHT_COLOR_1,
-          position: 'relative'
         }}>
-          <div className="handle" style={{
-            width: HANDLE_W,
-            height: HANDLE_W,
-            position: 'absolute',
-            right: -(HANDLE_W / 2),
-            backgroundColor: HIGH_LIGHT_COLOR_2
+          <div className="handle" style={{ width: HANDLE_W, height: HANDLE_W, position: 'absolute',
+            right: -(HANDLE_W / 2), backgroundColor: HIGH_LIGHT_COLOR_2
           }}
              onMouseDown={startListeningMouseMove}
           />
